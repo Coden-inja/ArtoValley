@@ -393,7 +393,12 @@ function onWindowResize() {
 }
 function onKeyDown(event) {
     switch (event.code) {
-        case 'ArrowUp': case 'KeyW': moveForward = true; break;
+        case 'ArrowUp': case 'KeyW': 
+            if (!isAudioInitialized) {
+                sounds.background.play();
+                isAudioInitialized = true;
+            }
+        moveForward = true; break;
         case 'ArrowLeft': case 'KeyA': moveLeft = true; break;
         case 'ArrowDown': case 'KeyS': moveBackward = true; break;
         case 'ArrowRight': case 'KeyD': moveRight = true; break;
