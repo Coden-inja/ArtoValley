@@ -5,7 +5,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 
 // --- Configuration ---
-const WS_URL = `ws://${window.location.host}/ws`;
+const WS_URL = window.location.protocol === 'https:' 
+    ? `wss://${window.location.host}/ws` 
+    : `ws://${window.location.host}/ws`;
 const PLAYER_HEIGHT = 1.8;
 const WALK_SPEED = 0.5; // Base speed
 const RUN_SPEED = 0.9;
