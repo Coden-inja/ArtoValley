@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -18,8 +19,13 @@ func main() {
 		serveWs(hub, w, r)
 	})
 
-	log.Println("Server starting on :8080")
-	err := http.ListenAndServe(":8080", nil)
+	port := os.Getenv("PORT")
+         if port == "" {
+             port = "8080" // Default port if not specified
+         }
+
+	log.Println("Server starting on :%s",port)
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
