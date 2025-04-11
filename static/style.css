@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+canvas {
+    display: block; /* Prevent default inline behavior */
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: white;
+    z-index: 100; /* Ensure it's on top */
+}
+
